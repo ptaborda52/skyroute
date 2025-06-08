@@ -1,0 +1,29 @@
+CREATE DATABASE skyroute;
+USE skyroute;
+CREATE TABLE clientes (
+    cuit VARCHAR(11) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    telefono VARCHAR(15) NOT NULL
+);
+
+CREATE TABLE destinos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    ciudad VARCHAR(100) NOT NULL,
+    pais VARCHAR(100) NOT NULL,
+    costo DECIMAL(10,2) NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE ventas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cuit_cliente VARCHAR(11) NOT NULL,
+    id_destino INT NOT NULL,
+    fecha_viaje DATE NOT NULL,
+    estado ENUM('activa', 'anulada') DEFAULT 'activa',
+    tipo_anulacion ENUM('admin', 'arrepentimiento') DEFAULT NULL, -- 🔹 Se agregó para diferenciar anulaciones
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+    FOREIGN KEY (cuit_cliente) REFERENCES clientes(cuit),
+    FOREIGN KEY (id_destino) REFERENCES destinos(id)
+);
