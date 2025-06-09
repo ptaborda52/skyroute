@@ -3,7 +3,7 @@ Sistemas de gestion de vuelos
  Integrantes del grupo:
    - Paola Garcia (DNI: 29463402) paosuga14
    - Pablo Taborda (DNI: 28270596) ptaborda52
-   - Julio Orjindo (DNI: 26482639)
+   - Julio Orjindo (DNI: 26482639) januley
 
 # ***********************************************************************************
 # Sistema: SkyRoute - Sistema de Gestión de Pasajes
